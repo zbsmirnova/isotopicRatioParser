@@ -1,23 +1,24 @@
 package zbsmirnova.isotopicRatioParser.service;
 
+import zbsmirnova.isotopicRatioParser.model.AbstractPb;
 import zbsmirnova.isotopicRatioParser.model.ConcentrationPb;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface PbService {
-    ConcentrationPb save(ConcentrationPb pb);
+    AbstractPb save(AbstractPb pb);
 
     boolean delete(int id);
 
     boolean delete(String sampleName);
 
-    ConcentrationPb get(int id);
+    AbstractPb get(int id);
 
-    ConcentrationPb get(String sampleName);
+    AbstractPb get(String sampleName);
 
     // ORDERED dateTime desc
-    List<ConcentrationPb> getBetween(LocalDate startDate, LocalDate endDate);
+    List<AbstractPb> getBetween(LocalDate startDate, LocalDate endDate);
 
-    List<ConcentrationPb> getAll();
+    List<AbstractPb> getAll();
 }

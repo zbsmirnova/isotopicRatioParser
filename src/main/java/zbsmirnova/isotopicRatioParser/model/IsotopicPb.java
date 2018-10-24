@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Table(name = "isotopic_pb_samples", uniqueConstraints =
         {@UniqueConstraint(columnNames = {"sampleName"}, name = "is_pb_unique_idx")})
 
-public class IsotopicPb extends ConcentrationPb {
+public class IsotopicPb extends AbstractPb {
     public static final String ALL_SORTED = "IsotopicPb.getAll";
     public static final String GET_BY_SAMPLE_NAME = "IsotopicPb.getBySampleName";
     public static final String GET_BY_DATE = "IsotopicPb.getByDate";

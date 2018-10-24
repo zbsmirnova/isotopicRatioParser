@@ -1,5 +1,6 @@
 package zbsmirnova.isotopicRatioParser.repository;
 
+import zbsmirnova.isotopicRatioParser.model.AbstractPb;
 import zbsmirnova.isotopicRatioParser.model.IsotopicPb;
 import zbsmirnova.isotopicRatioParser.util.ElementUtil;
 import org.springframework.dao.support.DataAccessUtils;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
-public class IsotopicPbJpaRepository implements IsotopicPbRepository {
+public class IsotopicPbJpaRepository implements PbRepository {
 
     @PersistenceContext
     EntityManager em;
@@ -59,14 +60,14 @@ public class IsotopicPbJpaRepository implements IsotopicPbRepository {
     }
 
     @Override
-    public List<IsotopicPb> getByDate(LocalDate date) {
+    public List<? extends AbstractPb> getByDate(LocalDate date) {
 
         return em.createQuery(IsotopicPb.GET_BY_DATE, IsotopicPb.class)
                 .setParameter("date", date).getResultList();
     }
 
     @Override
-    public List<IsotopicPb> getBetween(LocalDate startDate, LocalDate endDate) {
+    public List<? extends AbstractPb> getBetween(LocalDate startDate, LocalDate endDate) {
         return em.createNamedQuery(IsotopicPb.GET_BETWEEN, IsotopicPb.class)
                 .setParameter("startDate", startDate)
                 .setParameter("endDate", endDate).getResultList();
