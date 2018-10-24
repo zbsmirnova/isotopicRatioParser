@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
+import static zbsmirnova.isotopicRatioParser.model.PbType.ISOTOPIC;
+
 @NamedQueries({
         @NamedQuery(name = IsotopicPb.ALL_SORTED, query = "SELECT p FROM IsotopicPb p ORDER BY p.date DESC"),
         @NamedQuery(name = IsotopicPb.DELETE_BY_ID, query = "DELETE FROM IsotopicPb p WHERE p.id=:id"),
@@ -11,7 +13,7 @@ import java.time.LocalDate;
         @NamedQuery(name = IsotopicPb.GET_BETWEEN, query = "SELECT p FROM IsotopicPb p " +
                 "WHERE p.date BETWEEN :startDate AND :endDate ORDER BY p.date DESC"),
         @NamedQuery(name = IsotopicPb.GET_BY_SAMPLE_NAME, query = "SELECT p FROM IsotopicPb p WHERE p.sampleName=:sampleName"),
-        @NamedQuery(name = IsotopicPb.GET_BY_DATE, query = "SELECT p FROM IsotopicPb p WHERE p.date=:date")
+        @NamedQuery(name = IsotopicPb.GET_BY_DATE, query = "SELECT p FROM IsotopicPb p WHERE p.date=:date"),
 })
 
 @Entity
@@ -32,6 +34,10 @@ public class IsotopicPb extends AbstractPb {
     @Column(name = "err206204", nullable = false)
     @NotNull
     private double err206204;
+
+//    @Column(name="type", nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private final PbType type = ISOTOPIC;
 
     public IsotopicPb(){}
 
@@ -76,6 +82,10 @@ public class IsotopicPb extends AbstractPb {
     public double getPb206204err() {
         return err206204;
     }
+
+//    public PbType getType() {
+//        return type;
+//    }
 
     @Override
     public String toString() {

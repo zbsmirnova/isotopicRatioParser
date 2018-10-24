@@ -13,38 +13,15 @@ import java.time.LocalDate;
 public class U extends Element {
     @Column(name = "ratio238235", nullable = false)
     @NotNull
-    private final double ratio238235;
+    private double ratio238235;
     @Column(name = "err238235", nullable = false)
     @NotNull
-    private final double err238235;
+    private double err238235;
 
-    public U(Builder builder){
-        super(builder);
-        this.ratio238235 = builder.ratio238235;
-        this.err238235 = builder.err238235;
+    public U(String sampleName, LocalDate date){
+        super(sampleName, date);
     }
 
-    public static class Builder extends Element.Builder{
-        private double ratio238235;
-        private double err238235;
-
-        public Builder(String sampleName, LocalDate date){
-            super(sampleName, date);
-        }
-
-        public void setU238235(double u238235) {
-            this.ratio238235 = u238235;
-        }
-
-        public void setU238235err(double u238235err) {
-            this.err238235 = u238235err;
-        }
-
-        @Override
-        public U build(){
-            return new U(this);
-        }
-    }
 
     public double getU238235() {
         return ratio238235;

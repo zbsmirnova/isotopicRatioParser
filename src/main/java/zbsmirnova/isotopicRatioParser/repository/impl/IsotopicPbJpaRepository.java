@@ -1,7 +1,6 @@
-package zbsmirnova.isotopicRatioParser.repository;
-
-import zbsmirnova.isotopicRatioParser.model.AbstractPb;
+package zbsmirnova.isotopicRatioParser.repository.impl;
 import zbsmirnova.isotopicRatioParser.model.IsotopicPb;
+import zbsmirnova.isotopicRatioParser.repository.IsotopicPbRepository;
 import zbsmirnova.isotopicRatioParser.util.ElementUtil;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.stereotype.Repository;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
-public class IsotopicPbJpaRepository implements PbRepository {
+public class IsotopicPbJpaRepository implements IsotopicPbRepository {
 
     @PersistenceContext
     EntityManager em;
@@ -36,6 +35,7 @@ public class IsotopicPbJpaRepository implements PbRepository {
         return em.createNamedQuery(IsotopicPb.DELETE_BY_ID)
                 .setParameter("id", id)
                 .executeUpdate() != 0;
+
     }
 
     @Transactional
@@ -54,20 +54,20 @@ public class IsotopicPbJpaRepository implements PbRepository {
     @Override
     public IsotopicPb get(String sampleName) {
         List<IsotopicPb> elements = em.createNamedQuery(IsotopicPb.GET_BY_SAMPLE_NAME, IsotopicPb.class)
-                .setParameter(1, sampleName)
+                .setParameter("sampleName", sampleName)
                 .getResultList();
         return DataAccessUtils.singleResult(elements);
     }
 
     @Override
-    public List<? extends AbstractPb> getByDate(LocalDate date) {
-
+    public List<IsotopicPb> getByDate(LocalDate date) {
         return em.createQuery(IsotopicPb.GET_BY_DATE, IsotopicPb.class)
                 .setParameter("date", date).getResultList();
     }
 
+
     @Override
-    public List<? extends AbstractPb> getBetween(LocalDate startDate, LocalDate endDate) {
+    public List<IsotopicPb> getBetween(LocalDate startDate, LocalDate endDate) {
         return em.createNamedQuery(IsotopicPb.GET_BETWEEN, IsotopicPb.class)
                 .setParameter("startDate", startDate)
                 .setParameter("endDate", endDate).getResultList();

@@ -1,7 +1,6 @@
 package zbsmirnova.isotopicRatioParser.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @NamedQueries({
@@ -10,7 +9,8 @@ import java.time.LocalDate;
         @NamedQuery(name = ConcentrationPb.DELETE_BY_SAMPLE_NAME, query = "DELETE FROM ConcentrationPb p WHERE p.sampleName=:sampleName"),
         @NamedQuery(name = ConcentrationPb.GET_BETWEEN, query = "SELECT p FROM ConcentrationPb p " +
                 "WHERE p.date BETWEEN :startDate AND :endDate ORDER BY p.date DESC"),
-        @NamedQuery(name = ConcentrationPb.GET_BY_SAMPLE_NAME, query = "SELECT p FROM ConcentrationPb p WHERE p.sampleName=:sampleName")
+        @NamedQuery(name = ConcentrationPb.GET_BY_SAMPLE_NAME, query = "SELECT p FROM ConcentrationPb p WHERE p.sampleName=:sampleName"),
+        @NamedQuery(name = ConcentrationPb.GET_BY_DATE, query = "SELECT p FROM ConcentrationPb p WHERE p.date=:date"),
 })
 
 @Entity
@@ -19,9 +19,15 @@ import java.time.LocalDate;
 public class ConcentrationPb extends AbstractPb{
     public static final String ALL_SORTED = "ConcentrationPb.getAll";
     public static final String GET_BY_SAMPLE_NAME = "ConcentrationPb.getBySampleName";
+    public static final String GET_BY_DATE = "ConcentrationPb.getByDate";
     public static final String DELETE_BY_ID = "ConcentrationPb.deleteById";
     public static final String DELETE_BY_SAMPLE_NAME = "ConcentrationPb.deleteBySampleName";
     public static final String GET_BETWEEN = "ConcentrationPb.getBetween";
+
+
+//    @Column(name="type", nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private final PbType type = CONCENTRATION;
 
     public ConcentrationPb(){}
 
@@ -45,6 +51,9 @@ public class ConcentrationPb extends AbstractPb{
         super(pb);
     }
 
+//    public PbType getType() {
+//        return type;
+//    }
 
     @Override
     public String toString() {

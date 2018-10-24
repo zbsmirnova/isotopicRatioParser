@@ -12,37 +12,13 @@ import java.time.LocalDate;
 public class Rb extends Element {
     @Column(name = "ratio8587", nullable = false)
     @NotNull
-    private final double ratio8587;
+    private double ratio8587;
     @Column(name = "err8587", nullable = false)
     @NotNull
-    private final double err8587;
+    private double err8587;
 
-    public Rb(Builder builder){
-      super(builder);
-      this.ratio8587 = builder.ratio8587;
-      this.err8587 = builder.err8587;
-    }
-
-    public static class Builder extends Element.Builder{
-        private double ratio8587;
-        private double err8587;
-
-        public Builder(String sampleName, LocalDate date){
-            super(sampleName, date);
-        }
-
-        public void setRb8587(double rb8587) {
-            this.ratio8587 = rb8587;
-        }
-
-        public void setRb8587err(double rb8587err) {
-            this.err8587 = rb8587err;
-        }
-
-        @Override
-        public Rb build(){
-            return new Rb(this);
-        }
+    public Rb(String sampleName, LocalDate date){
+      super(sampleName, date);
     }
 
     public double getRb8587() {
