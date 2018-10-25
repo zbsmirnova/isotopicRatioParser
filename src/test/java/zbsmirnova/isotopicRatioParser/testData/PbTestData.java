@@ -1,4 +1,4 @@
-package zbsmirnova.isotopicRatioParser;
+package zbsmirnova.isotopicRatioParser.testData;
 
 import zbsmirnova.isotopicRatioParser.model.ConcentrationPb;
 import zbsmirnova.isotopicRatioParser.model.IsotopicPb;

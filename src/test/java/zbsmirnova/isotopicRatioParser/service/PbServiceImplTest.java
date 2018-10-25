@@ -8,7 +8,7 @@ import zbsmirnova.isotopicRatioParser.model.IsotopicPb;
 import java.time.LocalDate;
 
 
-import static zbsmirnova.isotopicRatioParser.PbTestData.*;
+import static zbsmirnova.isotopicRatioParser.testData.PbTestData.*;
 
 public class PbServiceImplTest extends AbstractServiceTest {
     @Autowired
