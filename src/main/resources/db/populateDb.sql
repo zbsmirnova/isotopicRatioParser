@@ -31,7 +31,7 @@ INSERT INTO rb_samples (SAMPLENAME, DATE, RATIO8587, ERR8587) values
 
 INSERT INTO U_SAMPLES (sampleName, date, ratio238235, err238235) VALUES
 ----100010
-  ('firstU', '2015-05-30', 138.135, 0.135),
+  ('firstU', '2015-05-29', 138.135, 0.135),
 ----100011
   ('secondU', '2015-05-30', 338.335, 0.335),
 ----100012
