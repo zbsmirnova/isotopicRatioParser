@@ -45,12 +45,12 @@ public class UServiceTest extends AbstractServiceTest {
 
     @Test
     public void getByDate() {
-        assertMatch(service.getByDate(LocalDate.parse("2015-04-30")), SECOND_U, THIRD_U);
+        assertMatch(service.getByDate(LocalDate.parse("2015-05-30")), SECOND_U, THIRD_U);
     }
 
     @Test
     public void getBetween() {
-        assertMatch(service.getBetween(LocalDate.parse("2015-03-30"), LocalDate.parse("2015-04-29")), FIRST_U);
+        assertMatch(service.getBetween(LocalDate.parse("2015-03-30"), LocalDate.parse("2015-05-29")), FIRST_U);
     }
 
     @Test

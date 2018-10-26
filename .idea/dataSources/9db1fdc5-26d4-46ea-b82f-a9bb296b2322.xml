@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="isotopicData">
-  <database-model serializer="dbm" rdbms="HSQLDB" format-version="4.11">
-    <root id="1">
-      <ServerVersion>2.4</ServerVersion>
-    </root>
+  <database-model serializer="dbm" rdbms="HSQLDB" format-version="4.7">
+    <root id="1"/>
     <database id="2" parent="1" name="PUBLIC">
       <Current>1</Current>
       <Visible>1</Visible>
@@ -20,217 +18,181 @@
     <table id="9" parent="4" name="U_SAMPLES"/>
     <column id="10" parent="6" name="ID">
       <Position>1</Position>
-      <DataType>INTEGER|4s</DataType>
+      <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="11" parent="6" name="SAMPLENAME">
       <Position>2</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="12" parent="6" name="DATE">
       <Position>3</Position>
-      <DataType>DATE|91s</DataType>
+      <DataType>DATE(10)|91</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
     </column>
     <column id="13" parent="6" name="RATIO206207">
       <Position>4</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="14" parent="6" name="ERR206207">
       <Position>5</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="15" parent="6" name="RATIO206208">
       <Position>6</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="16" parent="6" name="ERR206208">
       <Position>7</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="17" parent="6" name="SYS_IDX_SYS_PK_10555_10562">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="18" parent="6" name="SYS_IDX_CON_PB_UNIQUE_IDX_10569">
+    <index id="17" parent="6" name="SYS_IDX_CON_PB_UNIQUE_IDX_10123">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SAMPLENAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="19" parent="6" name="SYS_PK_10555">
+    <key id="18" parent="6" name="SYS_PK_10109">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="20" parent="6" name="SYS_IDX_CON_PB_UNIQUE_IDX_10569">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>SAMPLENAME</ColNames>
-    </key>
-    <column id="21" parent="7" name="ID">
+    <column id="19" parent="7" name="ID">
       <Position>1</Position>
-      <DataType>INTEGER|4s</DataType>
+      <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="22" parent="7" name="SAMPLENAME">
+    <column id="20" parent="7" name="SAMPLENAME">
       <Position>2</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="7" name="DATE">
+    <column id="21" parent="7" name="DATE">
       <Position>3</Position>
-      <DataType>DATE|91s</DataType>
+      <DataType>DATE(10)|91</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
     </column>
-    <column id="24" parent="7" name="RATIO206204">
+    <column id="22" parent="7" name="RATIO206204">
       <Position>4</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="25" parent="7" name="ERR206204">
+    <column id="23" parent="7" name="ERR206204">
       <Position>5</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="26" parent="7" name="RATIO206207">
+    <column id="24" parent="7" name="RATIO206207">
       <Position>6</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="27" parent="7" name="ERR206207">
+    <column id="25" parent="7" name="ERR206207">
       <Position>7</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="28" parent="7" name="RATIO206208">
+    <column id="26" parent="7" name="RATIO206208">
       <Position>8</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="7" name="ERR206208">
+    <column id="27" parent="7" name="ERR206208">
       <Position>9</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="30" parent="7" name="SYS_IDX_SYS_PK_10540_10547">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="31" parent="7" name="SYS_IDX_IS_PB_UNIQUE_IDX_10554">
+    <index id="28" parent="7" name="SYS_IDX_IS_PB_UNIQUE_IDX_10108">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SAMPLENAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="32" parent="7" name="SYS_PK_10540">
+    <key id="29" parent="7" name="SYS_PK_10094">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="33" parent="7" name="SYS_IDX_IS_PB_UNIQUE_IDX_10554">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>SAMPLENAME</ColNames>
-    </key>
-    <column id="34" parent="8" name="ID">
+    <column id="30" parent="8" name="ID">
       <Position>1</Position>
-      <DataType>INTEGER|4s</DataType>
+      <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="8" name="SAMPLENAME">
+    <column id="31" parent="8" name="SAMPLENAME">
       <Position>2</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="8" name="DATE">
+    <column id="32" parent="8" name="DATE">
       <Position>3</Position>
-      <DataType>DATE|91s</DataType>
+      <DataType>DATE(10)|91</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
     </column>
-    <column id="37" parent="8" name="RATIO8587">
+    <column id="33" parent="8" name="RATIO8587">
       <Position>4</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="38" parent="8" name="ERR8587">
+    <column id="34" parent="8" name="ERR8587">
       <Position>5</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="39" parent="8" name="SYS_IDX_SYS_PK_10570_10575">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="40" parent="8" name="SYS_IDX_RB_UNIQUE_IDX_10580">
+    <index id="35" parent="8" name="SYS_IDX_RB_UNIQUE_IDX_10134">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SAMPLENAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="41" parent="8" name="SYS_PK_10570">
+    <key id="36" parent="8" name="SYS_PK_10124">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="42" parent="8" name="SYS_IDX_RB_UNIQUE_IDX_10580">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>SAMPLENAME</ColNames>
-    </key>
-    <column id="43" parent="9" name="ID">
+    <column id="37" parent="9" name="ID">
       <Position>1</Position>
-      <DataType>INTEGER|4s</DataType>
+      <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="44" parent="9" name="SAMPLENAME">
+    <column id="38" parent="9" name="SAMPLENAME">
       <Position>2</Position>
-      <DataType>VARCHAR(255)|12s</DataType>
+      <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="9" name="DATE">
+    <column id="39" parent="9" name="DATE">
       <Position>3</Position>
-      <DataType>DATE|91s</DataType>
+      <DataType>DATE(10)|91</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_DATE</DefaultExpression>
     </column>
-    <column id="46" parent="9" name="RATIO238235">
+    <column id="40" parent="9" name="RATIO238235">
       <Position>4</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="47" parent="9" name="ERR238235">
+    <column id="41" parent="9" name="ERR238235">
       <Position>5</Position>
-      <DataType>DOUBLE|8s</DataType>
+      <DataType>DOUBLE(64)|8</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="48" parent="9" name="SYS_IDX_SYS_PK_10581_10586">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <index id="49" parent="9" name="SYS_IDX_U_UNIQUE_IDX_10591">
+    <index id="42" parent="9" name="SYS_IDX_U_UNIQUE_IDX_10145">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SAMPLENAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="50" parent="9" name="SYS_PK_10581">
+    <key id="43" parent="9" name="SYS_PK_10135">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
-    </key>
-    <key id="51" parent="9" name="SYS_IDX_U_UNIQUE_IDX_10591">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>SAMPLENAME</ColNames>
     </key>
   </database-model>
 </dataSource>

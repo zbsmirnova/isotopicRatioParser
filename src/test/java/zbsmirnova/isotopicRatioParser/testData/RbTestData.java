@@ -5,12 +5,12 @@ import zbsmirnova.isotopicRatioParser.model.Rb;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RbTestData {
-    public static final int FIRST_Rb_ID = 100007;
-    public static final int SECOND_Rb_ID = 100008;
-    public static final int THIRD_Rb_ID = 100009;
+    public static final int FIRST_Rb_ID = 100006;
+    public static final int SECOND_Rb_ID = 100007;
+    public static final int THIRD_Rb_ID = 100008;
 
     public static final Rb FIRST_Rb = new Rb(FIRST_Rb_ID, "firstRb", LocalDate.parse("2015-04-29"), 185.187, 0.187);
     public static final Rb SECOND_Rb = new Rb(SECOND_Rb_ID, "secondRb", LocalDate.parse("2015-04-30"), 285.287, 0.287);
