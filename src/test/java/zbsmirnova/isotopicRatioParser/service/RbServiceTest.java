@@ -1,9 +1,10 @@
 package zbsmirnova.isotopicRatioParser.service;
 
+import org.assertj.core.condition.Not;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import zbsmirnova.isotopicRatioParser.model.Rb;
-
+import zbsmirnova.isotopicRatioParser.util.exception.NotFoundException;
 
 
 import java.time.LocalDate;
@@ -30,15 +31,35 @@ public class RbServiceTest extends AbstractServiceTest{
         assertMatch(service.getAll(), SECOND_Rb, THIRD_Rb);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void deleteByIdNotFound() {
+        service.delete(0);
+    }
+
     @Test
     public void deleteBySampleName() {
         service.delete(FIRST_Rb.getSampleName());
         assertMatch(service.getAll(), SECOND_Rb, THIRD_Rb);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void deleteBySampleNameNotFound() {
+        service.delete("");
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getByIdNotFound() {
+        assertMatch(service.get(0), FIRST_Rb);
+    }
+
     @Test
     public void getById() {
         assertMatch(service.get(FIRST_Rb_ID), FIRST_Rb);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getBySampleNameNotFound() {
+        assertMatch(service.get(" "), FIRST_Rb);
     }
 
     @Test

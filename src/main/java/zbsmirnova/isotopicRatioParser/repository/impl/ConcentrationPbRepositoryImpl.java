@@ -15,6 +15,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.function.IntConsumer;
 
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFoundWithId;
+
 @Repository
 @Transactional(readOnly = true)
 public class ConcentrationPbRepositoryImpl implements ConcentrationPbRepository {

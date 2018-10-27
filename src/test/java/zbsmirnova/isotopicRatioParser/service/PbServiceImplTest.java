@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import zbsmirnova.isotopicRatioParser.model.ConcentrationPb;
 import zbsmirnova.isotopicRatioParser.model.IsotopicPb;
+import zbsmirnova.isotopicRatioParser.util.exception.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -31,10 +32,10 @@ public class PbServiceImplTest extends AbstractServiceTest {
         assertMatchCon(service.getAllConcentration(), secondConPb, thirdConPb);
     }
 
-//    @Test(expected = )
-//    public void deleteBySampleNameNotFound() {
-//        service.delete(" ");
-//    }
+    @Test(expected = NotFoundException.class)
+    public void deleteBySampleNameNotFound() {
+        service.delete(" ");
+    }
 
     @Test
     public void deleteById() {
@@ -43,9 +44,20 @@ public class PbServiceImplTest extends AbstractServiceTest {
         assertMatchCon(service.getAllConcentration(), secondConPb, thirdConPb, firstConPb);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void deleteByIdNotFound() {
+        service.delete(100);
+    }
+
+
     @Test
     public void getIsotopicById() {
         assertMatch(service.getIsotopic(firstIsPb_ID), firstIsPb);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getIsotopicByIdNotFound() {
+        assertMatch(service.getIsotopic(100), firstIsPb);
     }
 
     @Test
@@ -53,14 +65,29 @@ public class PbServiceImplTest extends AbstractServiceTest {
         assertMatch(service.getIsotopic(firstIsPb.getSampleName()), firstIsPb);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void getIsotopicBySampleNameNotFound() {
+        assertMatch(service.getIsotopic(" "), firstIsPb);
+    }
+
     @Test
     public void getConcentrationById() {
         assertMatch(service.getConcentration(firstConPb_ID), firstConPb);
     }
 
+    @Test(expected = NotFoundException.class)
+    public void getConcentrationByIdNotFound() {
+        assertMatch(service.getConcentration(100), firstConPb);
+    }
+
     @Test
     public void getConcentrationBySampleName() {
         assertMatch(service.getConcentration(firstConPb.getSampleName()), firstConPb);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getConcentrationBySampleNameNotFound() {
+        assertMatch(service.getConcentration(" "), firstConPb);
     }
 
     @Test

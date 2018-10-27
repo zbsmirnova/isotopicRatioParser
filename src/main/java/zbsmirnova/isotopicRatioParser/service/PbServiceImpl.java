@@ -12,6 +12,9 @@ import org.springframework.util.Assert;
 import java.time.LocalDate;
 import java.util.List;
 
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFound;
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFoundWithId;
+
 
 @Service
 public class PbServiceImpl implements PbService {
@@ -36,47 +39,49 @@ public class PbServiceImpl implements PbService {
 
     @Override
     public boolean delete(int id) {
-        return isotopicRepository.delete(id) | concentrationRepository.delete(id);
+        return checkNotFoundWithId(isotopicRepository.delete(id) |
+                concentrationRepository.delete(id), id);
     }
 
     @Override
     public boolean delete(String sampleName) {
         Assert.notNull(sampleName, "sample name date must not be null");
-        return isotopicRepository.delete(sampleName) & concentrationRepository.delete(sampleName);
+        return checkNotFound(isotopicRepository.delete(sampleName) &
+                concentrationRepository.delete(sampleName), sampleName);
     }
 
     @Override
     public boolean deleteIsotopic(String sampleName) {
         Assert.notNull(sampleName, "sample name date must not be null");
-        return isotopicRepository.delete(sampleName);
+        return checkNotFound(isotopicRepository.delete(sampleName), sampleName);
     }
 
     @Override
     public boolean deleteConcentration(String sampleName) {
         Assert.notNull(sampleName, "sample name date must not be null");
-        return concentrationRepository.delete(sampleName);
+        return checkNotFound(concentrationRepository.delete(sampleName), sampleName);
     }
 
     @Override
     public IsotopicPb getIsotopic(int id) {
-        return isotopicRepository.get(id);
+        return checkNotFoundWithId(isotopicRepository.get(id), id);
     }
 
     @Override
     public ConcentrationPb getConcentration(int id) {
-        return concentrationRepository.get(id);
+        return checkNotFoundWithId(concentrationRepository.get(id), id);
     }
 
     @Override
     public IsotopicPb getIsotopic(String sampleName) {
         Assert.notNull(sampleName, "sample name date must not be null");
-        return isotopicRepository.get(sampleName);
+        return checkNotFound(isotopicRepository.get(sampleName), sampleName);
     }
 
     @Override
     public ConcentrationPb getConcentration(String sampleName) {
         Assert.notNull(sampleName, "sample name date must not be null");
-        return concentrationRepository.get(sampleName);
+        return checkNotFound(concentrationRepository.get(sampleName), sampleName);
     }
 
     @Override

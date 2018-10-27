@@ -11,6 +11,8 @@ import javax.persistence.PersistenceContext;
 import java.time.LocalDate;
 import java.util.List;
 
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFoundWithId;
+
 @Repository
 @Transactional(readOnly = true)
 public class IsotopicPbRepositoryImpl implements IsotopicPbRepository {

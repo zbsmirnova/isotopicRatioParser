@@ -8,6 +8,9 @@ import zbsmirnova.isotopicRatioParser.repository.RbRepository;
 import java.time.LocalDate;
 import java.util.List;
 
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFound;
+import static zbsmirnova.isotopicRatioParser.util.ValidationUtil.checkNotFoundWithId;
+
 @Service
 public class RbServiceImpl implements RbService{
 
@@ -21,22 +24,22 @@ public class RbServiceImpl implements RbService{
 
     @Override
     public boolean delete(int id) {
-        return repository.delete(id);
+        return checkNotFoundWithId(repository.delete(id), id);
     }
 
     @Override
     public boolean delete(String sampleName) {
-        return repository.delete(sampleName);
+        return checkNotFound(repository.delete(sampleName), sampleName);
     }
 
     @Override
     public Rb get(int id) {
-        return repository.get(id);
+        return checkNotFoundWithId(repository.get(id), id);
     }
 
     @Override
     public Rb get(String sampleName) {
-        return repository.get(sampleName);
+        return checkNotFound(repository.get(sampleName), sampleName);
     }
 
     @Override
